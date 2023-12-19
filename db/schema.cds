@@ -1,4 +1,4 @@
-namespace company.project.scope;
+namespace company.project.db;
 
 using {
     sap,
