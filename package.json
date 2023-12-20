@@ -7,17 +7,21 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
-    "express": "^4",
+    "@sap/cds-hana": "^2",
     "@sap/xssec": "^3",
-    "passport": "^0",
-    "@sap/cds-hana": "^2"
+    "express": "^4",
+    "passport": "^0"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^7"
+    "@cap-js/cds-typer": "^0.14.0",
+    "@cap-js/sqlite": "^1.4.0",
+    "@sap/cds-dk": "^7",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "start-ts": "cds-ts serve"
   },
   "cds": {
     "requires": {
