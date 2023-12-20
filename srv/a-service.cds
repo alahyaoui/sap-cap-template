@@ -9,7 +9,7 @@ service SampleService @(path: 'sample') {
     entity SampleView as projection on db.SampleEntity {
         *
     } excluding {
-        ID,
+        sampleUUID,
     } 
 
     @readonly
