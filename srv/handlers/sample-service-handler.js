@@ -1,4 +1,5 @@
 const cds = require("@sap/cds");
+const LOG = cds.log('company.project.SampleServiceHandler');
 
 class SampleServiceHandler extends cds.ApplicationService {
 
@@ -11,8 +12,7 @@ class SampleServiceHandler extends cds.ApplicationService {
      * Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties
      */
 
-    #property1;
-    #property2;
+    #sampleProperty;
 
     /**
      * Class constructors
@@ -21,8 +21,7 @@ class SampleServiceHandler extends cds.ApplicationService {
     constructor() {
         super(...arguments);
 
-        this.#property1 = null; // Set to a value
-        this.#property2 = null; // Set to a value
+        this.#sampleProperty = null; // Set to a value
     }
 
 
@@ -34,36 +33,63 @@ class SampleServiceHandler extends cds.ApplicationService {
      * Ensure to call super.init() to allow subclasses to register their handlers. 
      * Do that after your registrations to go before the ones from subclasses, or before to have theirs go before yours.
      * 
-     * https://cap.cloud.sap/docs/node.js/core-services#srv-init
+     * Source: https://cap.cloud.sap/docs/node.js/core-services#srv-init
      */
     init() {
-        // Add your custom event hanlders here
+        /**
+         * These properties provide convenient access to the CSN definitions of the entities, events and operations — that is actions and functions — exposed by this service.
+         * 
+         * Source: https://cap.cloud.sap/docs/node.js/core-services#entities
+         */
+        const { SampleView } = this.entities;
+        const { SampleEvent } = this.events;
+        const { } = this.operations;
+        
 
+        /**
+         * Add your custom event hanlders here.
+         * You can find some examples of custom event handlers below, look the documentation for more examples.
+         * 
+         * Source: https://cap.cloud.sap/docs/node.js/core-services#srv-on-before-after
+         */
+        this.before("READ", SampleView, this.handleBeforeReadSampleView.bind(this));
+        this.on("READ", SampleView, this.handleOnReadSampleView.bind(this));
+        this.after("READ", SampleView, this.handleAfterReadSampleView.bind(this));
+        this.on("sampleAction", SampleView, this.handleOnSampleAction.bind(this));
+        
         return super.init();
+    }
+
+    async handleBeforeReadSampleView(req){
+        LOG.info(`Before READ SampleView req:(${req})`);
+    }
+
+    async handleOnReadSampleView(req){
+        LOG.info(`On READ SampleView req:(${req})`);
+    }
+
+    async handleAfterReadSampleView(data, req){
+        LOG.info(`After READ SampleView data:(${data}) req:(${req})`);
+    }
+    
+    async handleOnSampleAction(req){
+        LOG.info(`On sampleAction SampleView req:(${req})`);
     }
 
     /**
      * Getters
      */
 
-    get property1() {
-        return this.#property1;
-    }
-
-    get property2() {
-        return this.#property2;
+    get sampleProperty() {
+        return this.#sampleProperty;
     }
 
     /**
      * Setters
      */
 
-    set property1(property1) {
-        this.#property1 = property1;
-    }
-
-    set property2(property2) {
-        this.#property2 = property2;
+    set sampleProperty(property1) {
+        this.#sampleProperty = property1;
     }
 }
 

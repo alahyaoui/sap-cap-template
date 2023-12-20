@@ -10,7 +10,9 @@ service SampleService @(path: 'sample') {
         *
     } excluding {
         sampleUUID,
-    } 
+    } actions {
+        action sampleAction ( id: UUID, bool: Boolean );
+    }
 
     @readonly
     entity SampleReadOnlyView as projection on db.SampleEntity {
@@ -22,4 +24,5 @@ service SampleService @(path: 'sample') {
     group by sampleBoolean
     order By sampleUUID
 
+    event SampleEvent: { id: UUID; bool: Boolean };
 }
