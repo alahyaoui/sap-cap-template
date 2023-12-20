@@ -1,7 +1,6 @@
-using {company.project.service.SampleService} from './a-service';
+using {company.project.service.SampleService} from './sample-service';
 
 annotate SampleService.SampleView with {
-    sampleUUID        @readonly;
     sampleBinary           @readonly;
     sampleLargeBinary @readonly;
     sampleLargeString    @readonly;

@@ -1,4 +1,4 @@
-using {company.project.service.SampleService} from './a-service';
+using {company.project.service.SampleService} from './sample-service';
 
 annotate SampleService with @(requires: 'authenticated-user');
 

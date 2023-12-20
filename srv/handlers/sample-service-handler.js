@@ -1,6 +1,6 @@
 const cds = require("@sap/cds");
 
-class SampleController extends cds.ApplicationService {
+class SampleServiceHandler extends cds.ApplicationService {
 
     /**
      * Class properties
@@ -67,4 +67,4 @@ class SampleController extends cds.ApplicationService {
     }
 }
 
-module.exports = SampleController;
+module.exports = SampleServiceHandler;

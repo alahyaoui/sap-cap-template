@@ -3,7 +3,7 @@ namespace company.project.service;
 
 using {company.project.db as db} from '../db/schema';
 
-
+@impl : './handlers/sample-service-handler'
 service SampleService @(path: 'sample') {
 
     entity SampleView as projection on db.SampleEntity {
