@@ -1,5 +1,16 @@
+# Contents
 
-# <a name="rules"></a> Coding Rules
+ - [Coding Rules](#coding)
+ - [Git workflow](#git)
+   - [Branch Name Format](#branch)
+   - [Commit Message Guidelines](#commit)
+      - [Commit Message Header](#commit-header)
+      - [Commit Message Body](#commit-body)
+      - [Commit Message Footer](#commit-footer)
+      - [Revert commits](#commit-revert)
+   - [Merging Your Changes](#merge)
+
+# <a name="coding"></a> Coding Rules
 To ensure consistency throughout the source code, keep these rules in mind as you are working:
 
 * All features or bug fixes **must be tested** by one or more specs (unit-tests).
@@ -9,13 +20,12 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
    An automated formatter is available.
 
 
-# <a name="git-rules"></a> Git workflow
+# <a name="git"></a> Git workflow
 
 Before you begin coding, follow these steps:
 
 1. **Checkout to a local Branch**:
 Create a dedicated local branch using git checkout -b `<type>`/your-feature-name. This keeps your changes isolated from the main/quality/development/draft branches until ready for integration. 
-
 
 1. **Code Away**:
 Once on your feature branch, make your code modifications. This approach keeps the main branch stable while you work on improvements or additions.
@@ -24,7 +34,7 @@ Once on your feature branch, make your code modifications. This approach keeps t
 Regularly commit your changes locally and push to your feature branch. This ensures your work is saved and can be easily shared with others if needed.
 
 
-## <a name="commit-header"></a> Branch Name Format
+## <a name="branch"></a> Branch Name Format
 
 When creating local branches, adhere to these naming conventions:
 
@@ -193,7 +203,7 @@ Breaking Change section should start with the phrase "BREAKING CHANGE: " followe
 Similarly, a Deprecation section should start with "DEPRECATED: " followed by a short description of what is deprecated, a blank line, and a detailed description of the deprecation that also mentions the recommended update path.
 
 
-### Revert commits
+### <a name="commit-revert"></a>### Revert commits
 
 If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit.
 
@@ -202,7 +212,7 @@ The content of the commit message body should contain:
 - information about the SHA of the commit being reverted in the following format: `This reverts commit <SHA>`,
 - a clear description of the reason for reverting the commit message.
 
-## Merging Your Changes
+### <a name="merge"></a>## Merging Your Changes
 
 Once you are done with the changes you are working on, it is now time to merge your change.
 
