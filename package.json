@@ -17,37 +17,38 @@
     "@cap-js/sqlite": "^1.4.0",
     "@sap/cds-dk": "^7",
     "@types/node": "^20.10.5",
+    "cds2types": "^2.8.0",
     "typescript": "^5.3.3"
   },
   "scripts": {
     "start": "cds-serve",
     "start-ts": "cds-ts serve"
-  }, 
+  },
   "cds": {
     "requires": {
-        "db": {
-            "[development]": {
-                "kind": "sql"
-            },
-            "kind": "hana-cloud"
+      "db": {
+        "[development]": {
+          "kind": "sql"
         },
-        "auth": {
-            "[development]": {
-                "kind": "mocked"
-            },
-            "[hybrid]": {
-                "kind": "dummy"
-            },
-            "[production]": {
-                "kind": "xsuaa"
-            }
+        "kind": "hana-cloud"
+      },
+      "auth": {
+        "[development]": {
+          "kind": "mocked"
         },
-        "approuter": {
-            "kind": "cloudfoundry"
+        "[hybrid]": {
+          "kind": "dummy"
+        },
+        "[production]": {
+          "kind": "xsuaa"
         }
+      },
+      "approuter": {
+        "kind": "cloudfoundry"
+      }
     },
     "hana": {
-        "deploy-format": "hdbtable"
+      "deploy-format": "hdbtable"
     },
     "fiori": {}
   }
