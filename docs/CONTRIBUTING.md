@@ -51,22 +51,26 @@ The `<type>` and `<description>` fields are mandatory.
 ### Type
 
 * **Feature Branches**:
-For new features, use git checkout -b feature/your-feature-name. Keep the branch name descriptive and use hyphens to separate words.
+When working on new features, initiate a branch with `git checkout -b feature/your-feature-name`. Ensure the branch name is descriptive, and use hyphens to separate words.
 
 * **Bug Fix Branches**:
-When addressing a bug, create a branch with git checkout -b bugfix/issue-number. Include the issue number for clear tracking.
+When addressing bugs, create a branch using `git checkout -b bugfix/issue-number`. It's essential to include the issue number for transparent tracking.
 
 * **Hotfix Branches**:
-For critical fixes in the production environment, use git checkout -b hotfix/fix-description. Prioritize clarity in the branch name.
+In situations demanding critical fixes in the production environment, establish a branch with `git checkout -b hotfix/fix-description`. Emphasize clarity in the branch name to facilitate understanding.
 
 * **Release Branches**:
- These branches are used to prepare for a new production release. They allow for last-minute dotting of i’s and crossing t’s. Use the prefix release/. For example, release/v1.0.1
+These branches serve to prepare for a new production release, allowing for final adjustments. Utilize the prefix `release/`, such as `release/v1.0.1`.
 
-* **Documentation Branches**: 
-These branches are used to write, update, or fix documentation. Use the prefix docs/. For instance, docs/api-endpoints.
+* **Documentation Branches**:
+For tasks related to writing, updating, or fixing documentation, create branches with the prefix `docs/`. For example, `docs/api-endpoints`.
 
 * **Refactoring Branches**:
-When refactoring code, create a branch using git checkout -b refactor/description. Clearly state the purpose of the refactoring in the branch name.
+When engaging in code refactoring, craft a branch using `git checkout -b refactor/description`. Clearly articulate the purpose of the refactoring in the branch name.
+
+* **Testing Branches**:
+To conduct testing activities, create branches with the prefix `test/`. For instance, `test/feature-testing` or `test/bugfix-testing`. This helps organize testing efforts and maintain a systematic approach.
+
 
 Following these naming conventions enhances clarity, organization, and collaboration in your local Git workflow.
 
