@@ -22,11 +22,33 @@
   "scripts": {
     "start": "cds-serve",
     "start-ts": "cds-ts serve"
-  },
+  }, 
   "cds": {
     "requires": {
-      "auth": "xsuaa",
-      "db": "hana"
-    }
+        "db": {
+            "[development]": {
+                "kind": "sql"
+            },
+            "kind": "hana-cloud"
+        },
+        "auth": {
+            "[development]": {
+                "kind": "mocked"
+            },
+            "[hybrid]": {
+                "kind": "dummy"
+            },
+            "[production]": {
+                "kind": "xsuaa"
+            }
+        },
+        "approuter": {
+            "kind": "cloudfoundry"
+        }
+    },
+    "hana": {
+        "deploy-format": "hdbtable"
+    },
+    "fiori": {}
   }
 }
