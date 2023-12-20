@@ -4,7 +4,7 @@ namespace company.project.service;
 using {company.project.db as db} from '../db/schema';
 
 
-service SampleService @(path: 'report') {
+service SampleService @(path: 'sample') {
 
     entity SampleView as projection on db.SampleEntity {
         *
