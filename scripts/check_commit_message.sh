@@ -22,14 +22,14 @@ fi
 
 # Define the valid commit message format pattern
 VALID_TYPES=("build" "ci" "docs" "feat" "fix" "perf" "refactor" "test")
-VALID_SCOPES=("app" "db" "srv" "scripts" "docs" "packaging" "changelog" "dev-infra" "migrations")
-VALID_COMMIT_REGEX="^([a-z]+)(?:\(([a-z]+)\))?: ([A-Z].*[^.])$"
+VALID_SCOPES=("(app)" "(db)" "(srv)" "(scripts)" "(docs)" "(packaging)" "(changelog)" "(dev-infra)" "(migrations)")
+VALID_COMMIT_REGEX="^([a-z]+)(\(([a-z]+)\))?: ([A-Z].*[^.])$"
 
 if [[ $COMMIT_MESSAGE =~ $VALID_COMMIT_REGEX ]]; then
 
-  TYPE="${BASH_REMATCH[0]}"
-  SCOPE="${BASH_REMATCH[1]}"
-  SUMMARY="${BASH_REMATCH[2]}"
+  TYPE="${BASH_REMATCH[1]}"
+  SCOPE="${BASH_REMATCH[2]}"
+  SUMMARY="${BASH_REMATCH[3]}"
 
   # Check if the type and scope are valid
   if ! [[ " ${VALID_TYPES[@]} " =~ " ${TYPE} " ]]; then
@@ -44,7 +44,7 @@ if [[ $COMMIT_MESSAGE =~ $VALID_COMMIT_REGEX ]]; then
   fi
 
   # Check if the type and scope are valid
-  if ! [[ -z "$SCOPE" || " ${VALID_SCOPES[@]} " =~ " ${SCOPE} " ]]; then
+  if ! [[ -z $SCOPE || " ${VALID_SCOPES[@]} " =~ " ${SCOPE} " ]]; then
       echo "✖ Invalid scope in commit message."
       echo ""
       echo "You provided the following commit scope '${SCOPE}'"
