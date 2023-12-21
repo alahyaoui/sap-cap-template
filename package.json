@@ -13,16 +13,29 @@
     "passport": "^0"
   },
   "devDependencies": {
-    "@cap-js/cds-typer": "^0.14.0",
     "@cap-js/sqlite": "^1.4.0",
     "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.8",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.0",
+    "lint-staged": "^15.2.0",
+    "husky": "^8.0.3",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "@cap-js/cds-typer": "^0.14.0",
     "@types/node": "^20.10.5",
-    "cds2types": "^2.8.0",
-    "typescript": "^5.3.3"
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "cds2types": "^2.8.0"
   },
   "scripts": {
     "start": "cds-serve",
-    "start-ts": "cds-ts serve"
+    "start-ts": "cds-ts serve",
+    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier \"**/*.js\" --check",
+    "prettier:fix": "prettier \"**/*.js\" --write",
+    "format": "npm run prettier:fix"
   },
   "cds": {
     "requires": {
@@ -51,5 +64,19 @@
       "deploy-format": "hdbtable"
     },
     "fiori": {}
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --check --config .prettierrc"
+    ],
+    "*.ts": [
+      "eslint",
+      "prettier --check --config .prettierrc"
+    ],
+    "*.cds": [
+      "eslint",
+      "prettier --check --config .cdsprettier.json"
+    ]
   }
 }
