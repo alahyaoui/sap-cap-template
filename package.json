@@ -33,8 +33,8 @@
     "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier \"**/*.js\" --check",
-    "prettier:fix": "prettier \"**/*.js\" --write",
+    "prettier": "prettier \"**/*.js\" \"**/*.ts\" --check",
+    "prettier:fix": "prettier \"**/*.js\" \"**/*.ts\" --write",
     "format": "npm run prettier:fix"
   },
   "cds": {
