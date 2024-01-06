@@ -21,8 +21,8 @@ service SampleService @(path: 'sample') {
         sampleBoolean
     } 
     where sampleBoolean = true
-    group by sampleBoolean
-    order By sampleUUID
+    group by sampleUUID
+    order By sampleUInt8
 
     event SampleEvent: { id: UUID; bool: Boolean };
 }
