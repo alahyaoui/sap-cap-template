@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
-import ObjectUtils from "./ObjectUtils";
+import ObjectUtils from "./object-utils";
 
 export default class EntityUtils {
     static isDeepEquals(entity1, entity2) {
