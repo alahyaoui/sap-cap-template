@@ -6,7 +6,7 @@ export default class SampleService extends BaseService {
     private readonly sampleRepository: SampleRepository;
 
     constructor() {
-        super(SampleService.name);
+        super();
         this.sampleRepository = new SampleRepository();
     }
 

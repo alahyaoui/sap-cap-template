@@ -21,7 +21,7 @@ export default class SampleServiceHandler extends BaseHandler {
      * The constructor initializes the sampleController to null.
      */
     constructor(...args: any[]) {
-        super(SampleServiceHandler.name, ...args);
+        super(...args);
         this.sampleController = new SampleController(); // Set to a value
     }
 

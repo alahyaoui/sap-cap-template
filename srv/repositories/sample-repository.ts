@@ -5,7 +5,7 @@ import BaseRepository from "./base-repository";
 
 export default class SampleRepository extends BaseRepository {
     constructor() {
-        super(SampleRepository.name);
+        super();
     }
 
     async getByID(id: UUID) {

@@ -7,8 +7,8 @@ const PACKAGE_NAME = "company.project.handlers";
 export default abstract class BaseHandler extends ApplicationService {
     protected readonly log;
 
-    constructor(className: string, ...args: any) {
+    constructor(...args: any) {
         super(...args);
-        this.log = log(`${PACKAGE_NAME}.${className}`);
+        this.log = log(`${PACKAGE_NAME}.${new.target.name}`);
     }
 }

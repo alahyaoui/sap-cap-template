@@ -5,7 +5,7 @@ const PACKAGE_NAME = "company.project.controllers";
 export default abstract class BaseController {
     protected readonly log;
 
-    constructor(className: string) {
-        this.log = log(`${PACKAGE_NAME}.${className}`);
+    constructor() {
+        this.log = log(`${PACKAGE_NAME}.${new.target.name}`);
     }
 }

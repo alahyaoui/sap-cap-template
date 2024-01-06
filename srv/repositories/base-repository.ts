@@ -7,8 +7,8 @@ export default abstract class BaseRepository {
 
     protected db!: Service;
 
-    constructor(className: string) {
-        this.log = log(`${PACKAGE_NAME}.${className}`);
+    constructor() {
+        this.log = log(`${PACKAGE_NAME}.${new.target.name}`);
         void this.connect();
     }
 

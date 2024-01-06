@@ -5,7 +5,7 @@ export default class SampleController extends BaseController {
     private readonly sampleService: SampleService;
 
     constructor() {
-        super(SampleController.name);
+        super();
         this.sampleService = new SampleService();
     }
 
