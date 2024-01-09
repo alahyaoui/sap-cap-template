@@ -10,6 +10,7 @@
 import { Request } from "@sap/cds";
 import { SampleController } from "../controllers";
 import BaseHandler from "./base-handler";
+import { inspect } from "util";
 
 type Data = Record<string, any>;
 
@@ -52,7 +53,7 @@ export default class SampleServiceHandler extends BaseHandler {
      * @param req The request object.
      */
     async handleBeforeReadSampleView(req: Request): Promise<any> {
-        this.log.info(`Before READ SampleView req:(${JSON.stringify(req)})`);
+        this.log.info(`Before READ SampleView req:(${inspect(req)})`);
     }
 
     /**
@@ -62,7 +63,7 @@ export default class SampleServiceHandler extends BaseHandler {
      * @param req The request object.
      */
     async handleOnReadSampleView(req: Request, next: Function): Promise<any> {
-        this.log.info(`On READ SampleView req:(${JSON.stringify(req)})`);
+        this.log.info(`On READ SampleView req:(${inspect(req)})`);
         await this.sampleController.processSampleEntity();
 
         // Remove the following call if you want to override the default behavior
@@ -78,7 +79,7 @@ export default class SampleServiceHandler extends BaseHandler {
      */
     async handleAfterReadSampleView(data: Data, req: Request): Promise<any> {
         // Replace 'any' with the appropriate type
-        this.log.info(`After READ SampleView data:(${JSON.stringify(data)}) req:(${JSON.stringify(req)})`);
+        this.log.info(`After READ SampleView data:(${inspect(data)}) req:(${inspect(req)})`);
     }
 
     /**
@@ -86,6 +87,6 @@ export default class SampleServiceHandler extends BaseHandler {
      * @param req The request object.
      */
     async handleOnSampleAction(req: Request): Promise<any> {
-        this.log.info(`On sampleAction SampleView req:(${JSON.stringify(req)})`);
+        this.log.info(`On sampleAction SampleView req:(${inspect(req)})`);
     }
 }
