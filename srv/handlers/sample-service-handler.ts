@@ -1,4 +1,5 @@
 /*** REMOVE THOSE ESLINT WARNINGS DISABLERS WHEN IMPLEMENTING YOUR SERVICE ***/
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
@@ -6,9 +7,11 @@
 /* eslint-disable no-empty-pattern */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
+import { Request } from "@sap/cds";
 import { SampleController } from "../controllers";
 import BaseHandler from "./base-handler";
+
+type Data = Record<string, any>;
 
 /**
  * This class extends the ApplicationService from @sap/cds.
@@ -44,36 +47,45 @@ export default class SampleServiceHandler extends BaseHandler {
 
     /**
      * This method handles the "BEFORE READ" event for the SampleView entity.
+     * It has to follow the @sap/cds EventHandler interface signature.
+     *
      * @param req The request object.
      */
-    async handleBeforeReadSampleView(req: any): Promise<void> {
-        this.log.info(`Before READ SampleView req:(${req})`);
+    async handleBeforeReadSampleView(req: Request): Promise<any> {
+        this.log.info(`Before READ SampleView req:(${JSON.stringify(req)})`);
     }
 
     /**
      * This method handles the "ON READ" event for the SampleView entity.
+     * It has to follow @sap/cds OnEventHandler signature.
+     *
      * @param req The request object.
      */
-    async handleOnReadSampleView(req: any): Promise<void> {
-        this.log.info(`On READ SampleView req:(${req})`);
+    async handleOnReadSampleView(req: Request, next: Function): Promise<any> {
+        this.log.info(`On READ SampleView req:(${JSON.stringify(req)})`);
         await this.sampleController.processSampleEntity();
+
+        // Remove the following call if you want to override the default behavior
+        await next();
     }
 
     /**
      * This method handles the "AFTER READ" event for the SampleView entity.
+     * It has to follow @sap/cds ResultsHandler signature.
+     *
      * @param data The data returned from the read operation.
      * @param req The request object.
      */
-    async handleAfterReadSampleView(data: any, req: any): Promise<void> {
+    async handleAfterReadSampleView(data: Data, req: Request): Promise<any> {
         // Replace 'any' with the appropriate type
-        this.log.info(`After READ SampleView data:(${data}) req:(${req})`);
+        this.log.info(`After READ SampleView data:(${JSON.stringify(data)}) req:(${JSON.stringify(req)})`);
     }
 
     /**
      * This method handles the "sampleAction" event for the SampleView entity.
      * @param req The request object.
      */
-    async handleOnSampleAction(req: any): Promise<void> {
-        this.log.info(`On sampleAction SampleView req:(${req})`);
+    async handleOnSampleAction(req: Request): Promise<any> {
+        this.log.info(`On sampleAction SampleView req:(${JSON.stringify(req)})`);
     }
 }
