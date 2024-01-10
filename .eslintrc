@@ -34,7 +34,10 @@
     "cds": true
   },
   "rules": {
-    "no-console": "off",
-    "require-atomic-updates": "off"
+    "no-console": "warn",
+    "require-atomic-updates": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unsafe-argument":"warn"
   }
 }

@@ -1,12 +1,7 @@
 /*** REMOVE THOSE ESLINT WARNINGS DISABLERS WHEN IMPLEMENTING YOUR SERVICE ***/
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable no-empty-pattern */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request } from "@sap/cds";
 import { SampleController } from "../controllers";
 import BaseHandler from "./base-handler";
