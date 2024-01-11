@@ -201,8 +201,6 @@ There are currently a few exceptions to the "use package name" rule:
 
 * `changelog`: used for updating the release notes in CHANGELOG.md
 
-* `dev-infra`: used for dev-infra related changes within the directories /scripts and /tools
-
 * `migrations`: used for changes to the `npm update` migrations.
 
 * none/empty string: useful for `test` and `refactor` changes that are done across all packages (e.g. `test: add missing unit tests`) and for docs changes that are not related to a specific package (e.g. `docs: fix typo in tutorial`).
