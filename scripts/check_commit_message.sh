@@ -22,7 +22,7 @@ fi
 
 # Define the valid commit message format pattern
 VALID_TYPES=("build" "ci" "docs" "feat" "fix" "perf" "refactor" "test")
-VALID_SCOPES=("(app)" "(db)" "(srv)" "(scripts)" "(docs)" "(packaging)" "(changelog)" "(dev-infra)" "(migrations)")
+VALID_SCOPES=("(app)" "(db)" "(srv)" "(scripts)" "(docs)" "(packaging)" "(changelog)" "(migrations)")
 VALID_COMMIT_REGEX="^([a-z]+)(\(([a-z]+)\))?: ([A-Z].*[^.])$"
 
 if [[ $COMMIT_MESSAGE =~ $VALID_COMMIT_REGEX ]]; then
