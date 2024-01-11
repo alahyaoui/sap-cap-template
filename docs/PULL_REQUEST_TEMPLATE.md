@@ -16,9 +16,26 @@
 
 ## Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+
+- [ ] **New feature** - When working on new features
+- [ ] **Bug fix** - When addressing bugs
+- [ ] **Hot fix** - In situations demanding critical fixes in the production environment.
+- [ ] **Release** - To prepare for a new production release, allowing for final adjustments.
+- [ ] **Documentation** - For tasks related to writing, updating, or fixing documentation.
+- [ ] **Refactoring** - When engaging in code refactoring.
+- [ ] **Testing** - To conduct testing activities.
+
+## Layers affected
+<!--- Which layers are affected by your changes ? Put an `x` in all the boxes that apply: -->
+
+- [ ] **app** - for changes related to the **UI** layer
+- [ ] **srv** - for changes related to the **Service** layer
+- [ ] **db** - for changes related to the **Database** layer
+- [ ] **scripts**- for changes related to **Scripts**
+- [ ] **docs** - for changes related to the GitHub Documentation files (e.g: PULL_REQUEST_TEMPLATE.md, CONTRIBUTING.md, etc...)
+- [ ] **package.json** -  for changes related to packaging
+- [ ] **CHANGELOG.md** - for changes related to the release notes
+
 
 ## Checklist:
 <!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
@@ -26,6 +43,6 @@
 
 - [ ] My code follows the code style of this project.
 - [ ] I have tested my changes.
-- [ ] I added/updated tests.
+- [ ] I have added/updated tests.
 - [ ] I have updated the documentation accordingly, if necessary.
 - [ ] I have reviewed my changes.
