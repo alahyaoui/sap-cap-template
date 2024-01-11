@@ -9,7 +9,11 @@ build-parameters:
     - builder: custom
       commands:
         - npx cds build --production
+
+########################-- MODULES --#########################
 modules:
+
+  # --------------------- SERVER MODULE ------------------------
   - name: sap-cap-template-srv
     type: nodejs
     path: gen/srv
@@ -25,6 +29,7 @@ modules:
       - name: sap-cap-template-auth
       - name: sap-cap-template-db
 
+  # --------------------- SIDECAR MODULE ------------------------
   - name: sap-cap-template-db-deployer
     type: hdb
     path: gen/db
@@ -33,6 +38,7 @@ modules:
     requires:
       - name: sap-cap-template-db
 
+  # ----------------------- UI MODULE --------------------------
   - name: sap-cap-template
     type: approuter.nodejs
     path: app/router
@@ -48,7 +54,9 @@ modules:
           url: ~{srv-url}
           forwardAuthToken: true
       - name: sap-cap-template-auth
+###############################################################
 
+#######################-- RESOURCES --#########################
 resources:
   - name: sap-cap-template-auth
     type: org.cloudfoundry.managed-service
@@ -64,3 +72,4 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+###############################################################
