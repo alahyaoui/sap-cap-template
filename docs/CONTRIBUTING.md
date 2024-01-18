@@ -221,5 +221,5 @@ To merge your changes from your local branch:
 1. **Open a Pull Request (PR)**: Target the `draft` branch and fill out the PR template.
 2. **Review and Iterate**: Address feedback to improve your contribution.
 3. **Pass CI Checks**: Ensure your changes pass all tests and checks.
-4. **Final Approval and Merge**: Once approved, merge your changes.
+4. **Final Approval and Merge**: Once approved, merge your changes by either by choosing the option `rebase` or `squash` depending on your needs.
 5. **Delete the Branch**: Remove the feature branch if no longer needed.
