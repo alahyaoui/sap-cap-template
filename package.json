@@ -31,7 +31,10 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "start-ts": "cds-ts serve",
+    "start:ts": "cds-ts serve",
+    "build": "npm run build:cds && npm run build:ts",
+    "build:cds": "echo 'Compiling cds sources...' && cds build && cp .cdsrc.json gen/srv",
+    "build:ts": "echo 'Compiling *.ts sources...' && tsc",
     "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
