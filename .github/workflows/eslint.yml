@@ -20,7 +20,7 @@ on:
 
 jobs:
   eslint:
-    name: Run eslint scanning
+    name: Run ESLint Scanning
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -37,7 +37,7 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint .
-          --config .eslintrc.js
+          --config .eslintrc
           --ext .js,.jsx,.ts,.tsx
           --format @microsoft/eslint-formatter-sarif
           --output-file eslint-results.sarif
