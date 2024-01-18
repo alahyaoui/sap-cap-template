@@ -17,7 +17,8 @@
 ## Types of changes
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
 
-- [ ] **New feature** - When working on new features
+- [ ] **Non-breaking feature** - When working on new non-breaking features
+- [ ] **Breaking feature** - When working on new breaking features
 - [ ] **Bug fix** - When addressing bugs
 - [ ] **Hot fix** - In situations demanding critical fixes in the production environment.
 - [ ] **Release** - To prepare for a new production release, allowing for final adjustments.

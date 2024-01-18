@@ -177,7 +177,8 @@ Must be one of the following:
 * **build**: Changes that affect the build system or external dependencies (example scopes: npm)
 * **ci**: Changes to our CI configuration files and scripts (examples: GitHub Actions, Git hooks, Jenkins, etc...)
 * **docs**: Documentation only changes
-* **feat**: A new feature
+* **feat**: A new non breaking feature
+* **feat!**: A new breaking feature
 * **fix**: A bug fix
 * **perf**: A code change that improves performance
 * **refactor**: A code change that neither fixes a bug nor adds a feature
