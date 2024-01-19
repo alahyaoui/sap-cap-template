@@ -12,8 +12,9 @@ concurrency:
 
 jobs:
   prettier:
-    name: Prettier
-    runs-on: ubuntu-22.04
+    name: Run Prettier checking
+    runs-on: ubuntu-latest
+    
     strategy:
       matrix:
         node-version: [18]

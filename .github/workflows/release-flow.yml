@@ -10,7 +10,7 @@ on:
 
 jobs:
   setup:
-    name: Checkout & Generate Changelog
+    name: Generate Changelog & Create Release
     runs-on: ubuntu-latest
 
     outputs:
