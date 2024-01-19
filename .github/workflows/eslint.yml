@@ -7,18 +7,18 @@
 # More details at https://github.com/eslint/eslint
 # and https://eslint.org
 
-name: ESLint
+name: Static Code analysis
 
 on:
   push:
-    branches: [ "main", "quality", "development", "draft" ]
+    branches: ["main", "quality", "development", "draft"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [  "main", "quality", "development", "draft" ]
+    branches: ["main", "quality", "development", "draft"]
 
 jobs:
   eslint:
-    name: Run ESLint Scanning
+    name: Run ESLint scanning
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -27,6 +27,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

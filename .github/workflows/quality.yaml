@@ -5,11 +5,11 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [  "main", "quality", "development", "draft" ]
-    
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
   prettier:
     name: Prettier
@@ -21,15 +21,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-          
+
       - name: Install dependencies
         run: npm install --save-dev
-        
+
       - name: Check formatting with Prettier
         run: npm run prettier
