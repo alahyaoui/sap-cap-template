@@ -14,9 +14,7 @@ on:
     branches: [ "main", "quality", "development", "draft" ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
-  schedule:
-    - cron: '19 19 * * 3'
+    branches: [  "main", "quality", "development", "draft" ]
 
 jobs:
   eslint:
@@ -26,14 +24,17 @@ jobs:
       contents: read
       security-events: write
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+    strategy:
+      matrix:
+        node-version: [18]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install ESLint
         run: |
-          npm install eslint@8.10.0
-          npm install @microsoft/eslint-formatter-sarif@2.1.7
+          npm install eslint@8.10.0 --save-dev
+          npm install @microsoft/eslint-formatter-sarif@2.1.7 --save-dev
 
       - name: Run ESLint
         run: npx eslint .
