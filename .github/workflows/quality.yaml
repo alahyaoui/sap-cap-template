@@ -1,7 +1,10 @@
-name: Code Quality checks
+name: Format checking
 on:
+  push:
+    branches: [ "main", "quality", "development", "draft" ]
   pull_request:
-    branches: [main]
+    # The branches below must be a subset of the branches above
+    branches: [  "main", "quality", "development", "draft" ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -14,7 +17,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
-
+        
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
