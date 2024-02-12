@@ -18,6 +18,7 @@
     "@cap-js/cds-typer": "^0.14.0",
     "@cap-js/sqlite": "^1.4.0",
     "@sap/cds-dk": "^7",
+    "@sap/cds-lsp": "^7.6.0",
     "@sap/eslint-plugin-ui5-jsdocs": "^2.0.8",
     "@types/node": "^20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
@@ -25,7 +26,6 @@
     "eslint-plugin-prettier": "^5.1.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.1.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"
   },
@@ -42,9 +42,11 @@
     "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky install",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prettier": "prettier \"**/*.js\" \"**/*.ts\" --check",
-    "prettier:fix": "prettier \"**/*.js\" \"**/*.ts\" --write",
-    "format": "npm run prettier:fix"
+    "format": "prettier \"**/*.js\" \"**/*.ts\" --write && format-cds",
+    "format:js": "prettier \"**/*.js\" --write",
+    "format:ts": "prettier \"**/*.ts\" --write",
+    "format:cds": "format-cds",
+    "format:check": "echo 'Prettier formatting'; prettier **/*.js **/*.ts --check && echo && echo 'CDS formatting'; bash scripts/check_cds_formatting.sh db srv"
   },
   "cds": {
     "requires": {
@@ -96,8 +98,7 @@
       "prettier --check --config .prettierrc"
     ],
     "*.cds": [
-      "eslint",
-      "prettier --check --config .cdsprettier.json"
+      "bash scripts/check_cds_formatting.sh db srv"
     ]
   }
 }

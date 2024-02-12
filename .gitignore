@@ -21,11 +21,14 @@ target/
 *.mtar
 mta_archives/
 
+# cds-lsp
+*.bak
+cds_tmp/
+
 # Other
 .DS_Store
 *.orig
 *.log
-
 *.iml
 *.flattened-pom.xml
 
